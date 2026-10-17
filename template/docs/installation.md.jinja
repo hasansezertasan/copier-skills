@@ -49,7 +49,7 @@ mkdir -p ~/.agents/skills
 for skill in {{ repo_name }}/skills/*/; do ln -s "$PWD/${skill%/}" ~/.agents/skills/; done
 ```
 
-Alternatively, add the clone's `skills/` directory to OpenCode's configuration. The `skills` array comes from OpenCode's published config schema, which marks the older object form (with a `paths` key) deprecated; OpenCode's documentation pages do not describe this option, so it is unverified in practice:
+Alternatively, add the clone's `skills/` directory to OpenCode's configuration. The `skills` array (paths or URLs) is in OpenCode's published config schema, which marks the older `{paths, urls}` object form deprecated, and OpenCode's source reads it, but its documentation pages do not describe it:
 
 ```json
 {
@@ -60,7 +60,7 @@ Alternatively, add the clone's `skills/` directory to OpenCode's configuration. 
 
 To update, run `git pull` in the clone; nothing was copied.
 
-> **Open question.** The official OpenCode documentation shows no way for an npm package to ship skills, so there is no npm route for OpenCode. If that changes, add it here.
+> **No npm route.** OpenCode has no npm-native skill channel: nothing scans `node_modules` for skills, and its documentation shows no way for an npm package to ship them. A plugin published to npm can inject skills through OpenCode's plugin API, but this template does not generate one. See `docs/research/opencode-npm-skills.md` in the template repository for the evidence and what is still unverified.
 
 ## Antigravity
 

@@ -8,7 +8,7 @@ Decisions from the design grilling session (2026-10-15). Terms are defined in `C
 - It ships one placeholder skill: a minimal `SKILL.md` named from the `placeholder_skill` answer.
 - Out of scope: Hermes packaging and repos like homebrew-news.
 - Runtimes: Claude Code, Codex, OpenCode, Pi and Antigravity are always on. Antigravity installs from the Git URL, so its only artifact is a root `plugin.json` adapter (name and description from the answers); `check-repo.mjs` fails when it drifts from the generated Claude manifest.
-- OpenCode install is git-only (copy or symlink `skills/` into `.agents/skills/`). Official docs show no way for an npm package to ship skills to OpenCode, so `docs/installation.md` records this as an open question.
+- OpenCode install is git-only (copy or symlink `skills/` into `.agents/skills/`). OpenCode has no npm-native skill channel; a plugin published to npm could inject skills through OpenCode's plugin API, but the template does not generate one (`docs/research/opencode-npm-skills.md`).
 
 ## Tooling
 

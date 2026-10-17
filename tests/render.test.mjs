@@ -1032,7 +1032,8 @@ describe("runtimes", () => {
       assert.match(doc, /`pi update npm:demo-skills`/);
       assert.match(doc, /`pi update git:github\.com\/acme\/demo-skills`/);
       assert.doesNotMatch(doc, /`pi update`, then/);
-      assert.match(doc, /Open question/);
+      assert.match(doc, /No npm route/);
+      assert.doesNotMatch(doc, /Open question/);
       assert.ok(!doc.includes("{{") && !doc.includes("{%"), "no unrendered template syntax");
     });
 
